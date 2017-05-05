@@ -1,0 +1,32 @@
+#domain_model_toolbar{
+	height:344px;
+	overflow-y:auto;
+	border:none;
+}
+#domain_model_toolbar:hover{
+	background-color:transparent;
+}
+#domainarrow{
+	height:32px;
+	text-align:center;
+	border:none;
+}
+.domainmodel_toolbar_button{
+	border:1px white solid;
+}
+.domainmodel_toolbar_button:hover{
+	background-color:#E6E6DA;
+	border:1px lightgray solid;
+}
+#Resource{
+	height:32px;
+	text-align:center;
+	width:140px;
+	border:none;
+}
+#domain_line,#domain_inheritance,#domain_aggregation,#domain_composition{
+	height:23px;
+	text-align:center;
+	width:140px;
+	border:none;
+}

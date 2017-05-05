@@ -1,0 +1,114 @@
+.popup_window_class{ /* et must ala ei hõlmaks kogu lehte, tuleb protsent väiksemaks */
+width: 100%;
+height: 100%;
+position: absolute;
+top: 0px;
+left: 0px;
+display: none; /* algselt on peidus */
+}
+
+.display_overlay_bg_class {
+position: absolute;
+left: 0px;
+top: 0px;
+/* kui panna protsent väiksemaks, siis klikitav ala (et ettehüppav kast ära kaoks) on ka väiksem */
+width: 100%;
+height: 100%;
+background-color: black;
+z-index: 11;
+/* kaks järgmist rida: et see must taust tumedam oleks, siis panna 0.65 ja 65 numbrid suuremaks */
+opacity: 0.65;
+filter: alpha(opacity=65);
+}
+
+.display_horizon_class { 
+position: absolute;
+top: 15%; /* suurem protsent - sisu kast läheb allapoole */
+left: 0px;
+width: 100%;
+height: 1px;
+overflow: visible;
+}
+
+.display_content_class { /* see on ette hüppav aken */
+display:none;
+padding: 20px;
+position: absolute;
+width: 39%;
+height: 400px;
+background-color: lightgray;
+font-size: 20px;
+color: black;
+border-radius:10px;
+z-index: 12;
+/*centering*/
+margin: 0 auto;
+left:0; 
+right:0;
+overflow: auto;
+}
+
+.popup_display_specific_content{
+	width:100%;
+	display:none;
+}
+
+.text_input{
+	width:90%;
+	text-align:center;
+	border:2px gray solid;
+}
+
+#colorpicker{
+	cursor:pointer;
+	width:75px;
+	height:35px;
+	float:right;
+}
+
+p{
+	text-align:left;
+	margin:0px;
+}
+
+#name_input{
+	width:40%;
+	height:12%;
+	font-size:14pt;
+}
+
+.popup_textarea{
+	vertical-align: top;
+	width:100%;
+	max-width:100%;
+	min-width:100%;
+	height:100px;
+	max-height:200px;
+}
+
+#description_label, #attributes_label, #roles_label{
+	margin-top:2%;
+}
+
+.popup_action_button{
+	width:30%;
+	height:10%;
+}
+#edit_responsibilities_and_constraints_button{
+	width:100%;
+}
+#popup_label{
+	display:inline;
+}
+#edit_element_button{
+	display:inline;
+	float:right;
+	width:50px;
+}
+.popup_textarea{
+	border:1px #CACABC solid;
+}
+.popup_textarea_locked{
+	border:1px #F5F5F0 solid;
+	background-color:lightgray;
+}

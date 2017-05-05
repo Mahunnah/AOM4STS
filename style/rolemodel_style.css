@@ -1,0 +1,70 @@
+#role_model_toolbar{
+	height:100%;
+	overflow-y:auto;
+}
+#role_model_toolbar:hover{
+	background-color:transparent;
+}
+#role_new{
+	font-weight:bold;
+}
+.rolemodelcontent{
+	width:55%;
+	border:1px gray solid;
+	border-spacing: 0;
+	margin: 0 auto;
+	table-layout:fixed;
+	overflow:auto; 
+	white-space:pre-wrap;
+}
+#rolemodeltable_header{
+	border:none;
+	text-align:right;
+	margin-top:20px;
+}
+#rolemodeltable td{
+	border:1px gray solid;
+	vertical-align:top;
+	overflow:hidden;
+}
+.rolemodeltable_left_td{
+	width:30%;
+	font-weight:bold;
+	background-color:#E6E6DA;
+	overflow:hidden;
+}
+.rolemodel_textarea{
+	border:none;
+	width:99.9%;
+}
+.rolemodel_textarea_edit{
+	border:none;
+	width:99.8%;
+	max-width:99.8%;
+	min-width:99.8%;
+	display:none;
+	font-size:12pt;
+	font-family: Arial, "Times New Roman", Times, serif;
+}
+.role_icon{
+	background: url("../images/Role.png") no-repeat center;
+	//background-size:10px;
+	background-size: 75% 100%;
+	background-position: 50% 75%;
+	display:inline-block;
+   	width: 15px;
+    	height: 15px;
+}
+.rolemodel_toolbar_button{
+	border:1px white solid;
+}
+.rolemodel_toolbar_button:hover{
+	background-color:#E6E6DA;
+	border:1px lightgray solid;
+}
+#edit_rolemodel_button{
+	width:50px;
+}
+.selected_rolemodel_role_name{
+	background-color:lightgray;
+}

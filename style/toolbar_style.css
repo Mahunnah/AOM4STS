@@ -1,0 +1,94 @@
+#Role{
+	background-image: url("../images/Role.png");
+	background-repeat: no-repeat;
+	background-position: center; 
+	background-size: 30% 80%;
+}
+#QG{
+	background-image: url("../images/QG.png");
+	background-repeat: no-repeat;
+	background-position: center; 
+	background-size: 80% 80%;
+}
+#FG{
+	background-image: url("../images/FG.png");
+	background-repeat: no-repeat;
+	background-position: center; 
+	background-size: 80% 75%;
+}
+#EG{
+	background-image: url("../images/EG.png");
+	background-repeat: no-repeat;
+	background-position: center; 
+	background-size: 60% 85%;
+}
+#NEG{
+	background-image: url("../images/NEG.png");
+	background-repeat: no-repeat;
+	background-position: center; 
+	background-size: 60% 80%;
+}
+#toggle_goal_model_elements{
+	background-image: url("../images/AllGME.png");
+	background-repeat: no-repeat;
+	background-position: center; 
+	background-size: 80% 100%;
+}
+#Resource{
+	background-image: url("../images/Resource.png");
+	background-repeat: no-repeat;
+	background-position: center; 
+	background-size: 40% 80%;
+}
+
+#behaviour_rule{
+	background-image: url("../images/rule.png");
+	background-repeat: no-repeat;
+	background-position: center; 
+	background-size: 70% 100%;
+}
+#behaviour_activity_type{
+	background-image: url("../images/activitytype.png");
+	background-repeat: no-repeat;
+	background-position: center; 
+	background-size: 90% 80%;
+}
+#behaviour_start_event{
+	background-image: url("../images/startevent.png");
+	background-repeat: no-repeat;
+	background-position: center; 
+	background-size: 33% 50%;
+}
+#behaviour_join{
+	background-image: url("../images/join.png");
+	background-repeat: no-repeat;
+	background-position: center; 
+	background-size: 70% 100%;
+}
+
+.toolbar_button:hover{
+	background-color:#EBEBE0;
+}
+
+.toolbar_button_selected{
+	background-color:#DCDCCA;
+}
+
+.toolbar_button{
+	position:relative;
+	height:9%;
+	border:1px black solid;
+	cursor:pointer;
+	border-top:none;
+	border-left:none;
+	border-right:none;
+}
+
+.top_positioned_button{
+	//border-top-left-radius:8px;
+	//border-top-right-radius:8px;
+}
+
+#toggle_goal_model_elements{
+	height:25px;
+}

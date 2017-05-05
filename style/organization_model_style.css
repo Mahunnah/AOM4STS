@@ -1,0 +1,26 @@
+#organization_model_toolbar{
+	height:399px;
+	overflow-y:auto;
+	border:none;
+}
+#organization_model_toolbar:hover{
+	background-color:transparent;
+}
+.organizationmodel_toolbar_button{
+	border:1px white solid;
+}
+.organizationmodel_toolbar_button:hover{
+	background-color:#E6E6DA;
+	border:1px lightgray solid;
+}
+#org_line, #isBenevolentTo_line,#isControlledBy_line,#isPeer_line{
+	height:23px;
+	text-align:center;
+	width:140px;
+	border:none;
+}
+#orgarrow{
+	height:32px;
+	text-align:center;
+	border:none;
+}

@@ -1,0 +1,49 @@
+#cpnmmodel_wrapper{
+	 -webkit-user-drag: none;
+	  -khtml-user-drag: none;
+	  -moz-user-drag: none;
+	  -o-user-drag: none;
+	  user-drag: none;
+	  	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+#cpnmmodel_toolbar{
+	background-color: transparent;
+	height:100%;
+	overflow-y:auto;
+	  -webkit-user-drag: none;
+	  -khtml-user-drag: none;
+	  -moz-user-drag: none;
+	  -o-user-drag: none;
+	  user-drag: none;
+	  	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+.cpnmodel_toolbar_div:hover{
+	background-color:#EBEBE0;
+	  -webkit-user-drag: none;
+	  -khtml-user-drag: none;
+	  -moz-user-drag: none;
+	  -o-user-drag: none;
+	  user-drag: none;
+	  	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+.generate_cpn_button{
+	width: 100%;
+}

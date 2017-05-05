@@ -1,0 +1,682 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Raphael Graffle</title>
+
+    <link rel="stylesheet" href="style/main_style.css" type="text/css" media="screen">        
+	<link rel="stylesheet" href="style/toolbar_style.css" type="text/css" media="screen">
+	<link rel="stylesheet" href="style/popup_style.css" type="text/css" media="screen">
+	<link rel="stylesheet" href="style/rolemodel_style.css" type="text/css" media="screen">
+	<link rel="stylesheet" href="style/motivationalscenario_style.css" type="text/css" media="screen">
+	<link rel="stylesheet" href="style/organization_model_style.css" type="text/css" media="screen">
+	<link rel="stylesheet" href="style/domainmodel_style.css" type="text/css" media="screen">
+	<link rel="stylesheet" href="style/agentmodel_style.css" type="text/css" media="screen">
+	<link rel="stylesheet" href="style/acquaintancemodel_style.css" type="text/css" media="screen">
+	<link rel="stylesheet" href="style/knowledgemodel_style.css" type="text/css" media="screen">
+	<link rel="stylesheet" href="style/interactionmodel_style.css" type="text/css" media="screen">
+	<link rel="stylesheet" href="style/behaviourmodel_style.css" type="text/css" media="screen">
+	<link rel="stylesheet" href="style/behaviourinterface_style.css" type="text/css" media="screen">
+	<link rel="stylesheet" href="style/cpn_model_style.css" type="text/css" media="screen">
+
+    <script src="libraries/raphael.js" type="text/javascript" charset="utf-8"></script>
+	<script src="libraries/map.js" type="text/javascript" charset="utf-8"></script>
+	<script src="libraries/jquery.js"></script>
+	<script src="libraries/FileSaver.js" type="text/javascript"></script>
+	<script src="libraries/xml2json-master/xml2json.min.js" type="text/javascript"></script>
+	<script src="libraries/jquery.xml2json.js" type="text/javascript"></script>
+
+    <script src="js/graffle.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/main.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/toolbar.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/rules.js" type="text/javascript" charset="utf-8"></script>        
+	<script src="js/connections.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/labels.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/resizer.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/main_rolemodel.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/main_motivationalscenario.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/main_organizationmodel.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/main_domainmodel.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/main_agentmodel.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/main_acquaintancemodel.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/main_knowledgemodel.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/main_interactionmodel.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/main_behaviourmodel.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/main_behaviourinterface.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/main_cpn_model.js" type="text/javascript" charset="utf-8"></script>
+
+    <script src="js/save.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/saveXML.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/loadXML.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/load.js" type="text/javascript" charset="utf-8"></script>	
+	<script src="js/clear.js" type="text/javascript" charset="utf-8"></script>		
+
+	<script src="js/popup_control.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/keyboard_listener.js" type="text/javascript" charset="utf-8"></script>
+	<script src="jscolor/jscolor.js" type="text/javascript"></script>
+
+
+		<script>
+			$(document).ready(function(){
+				goTo("GoalModel");
+
+				$('.model_tab').click(function(){
+					$('.model_tab').removeClass("chosen_model_tab");
+					$(this).addClass("chosen_model_tab");
+				
+					if($(this).is("#tab_goalmodel")){
+						goTo("GoalModel");
+						say("Switched to Goal Model");
+					}
+					if($(this).is("#tab_motivationalscenario")){
+						goTo("MotivationalScenario");
+						say("Switched to Motivational Scenario");
+					}
+					if($(this).is("#tab_rolemodel")){
+						goTo("RoleModel");
+						say("Switched to Role Model");
+					}
+					if($(this).is("#tab_organizationmodel")){
+						goTo("OrganizationModel");
+						say("Switched to Organization Model");
+					}
+					if($(this).is("#tab_domainmodel")){
+						goTo("DomainModel");
+						say("Switched to Domain Model");
+					}
+					if($(this).is("#tab_agentmodel")){
+						goTo("AgentModel");
+						say("Switched to Agent Model");
+					}
+					if($(this).is("#tab_acquaintancemodel")){
+						goTo("AcquaintanceModel");
+						say("Switched to Acquaintance Model");
+					}
+					if($(this).is("#tab_knowledgemodel")){
+						goTo("KnowledgeModel");
+						say("Switched to Knowledge Model");
+					}
+					if($(this).is("#tab_interactionmodel")){
+						goTo("InteractionModel");
+						say("Switched to Interaction Model");
+					}
+					if($(this).is("#tab_behaviourmodel")){
+						goTo("BehaviourModel");
+						say("Switched to Behaviour Model");
+					}
+					if($(this).is("#tab_behaviour_interface")){
+						goTo("BehaviourInterfaceModel");
+						say("Switched to Behaviour Interface Model");
+					}
+					if($(this).is("#tab_cpn_model")){
+						goTo("CPNModel");
+						say("Switched to CPN model");
+					}
+				});	
+				
+				var toolbarVisible = true;
+				$("#hidetoolbar").click(function() {
+					if(toolbarVisible == true){
+						toolbarVisible = false;
+						$( "#toolbar" ).animate({
+							width: 0
+						}, 500, function() {	
+							$("#hidetoolbar_text").html("Show toolbar");
+							$( "#toolbar" ).css("display","none");		
+						});
+					}
+					else{
+						$( "#toolbar" ).css("display","block");
+						toolbarVisible = true;
+						var width = 140;
+						if(selectedModel == "GoalModel"){
+							width = 75;
+						}
+						$( "#toolbar" ).animate({
+							width: width
+						}, 500, function() {	
+							$("#hidetoolbar_text").html("Hide toolbar");	
+							goTo(selectedModel);			
+						});
+					}
+				});
+				var toggleSay=false;
+				$("#say").dblclick(function() {
+					if(toggleSay==false){
+						$( "#say" ).animate({
+							height: '550px'
+						}, 500, function() {	
+							toggleSay=true;	
+						});
+					}
+					else{
+						$( "#say" ).animate({
+							height: '49px'
+						}, 500, function() {	
+							toggleSay=false;
+							$("#say").scrollTop($("#say")[0].scrollHeight);	
+						});
+					}
+					
+				});
+				toggleElementsInGoalModel = false;
+				$("#toggle_goal_model_elements").click(function(){
+					if(toggleElementsInGoalModel==false){
+						toggleElementsInGoalModel = true;
+						$(".goalmodel").css("display", "none");
+						$("#toggle_goal_model_elements, #goal_model_toolbar").css("display", "block");
+						$("#goal_model_toolbar").css("height", "475");
+						setToolbarSize(140);
+						showGoalModelNames();
+					}
+					else{
+						toggleElementsInGoalModel = false;
+						setToolbarSize(75);
+						$(".goalmodel").css("display", "block");
+						$("#goal_model_toolbar").css("display", "none");
+						$("#goal_model_toolbar").css("height", "0");
+					}
+				});
+
+				$("#show_system_design_layer").click(function() {
+					$(".system_design_layer").css("display","inline-block");
+					$(".motivation_layer").css("display","none");
+				});
+				$("#show_motivation_layer").click(function() {
+					$(".motivation_layer").css("display","inline-block");
+					$(".system_design_layer").css("display","none");
+				});
+				$("#show_layers").click(function() {
+					$(".motivation_layer").css("display","inline-block");
+					$(".system_design_layer").css("display","inline-block");
+				});
+
+			});
+				function hide_the_overlay(){
+					$('#cancel_button').click();
+				}
+				function writeJSON(filename, jsondata){
+					$.post("write.php",{file:filename, json:jsondata}, function(data){
+						say(data);
+					});
+				}
+				function writeXML(filename, XML){
+					$.post("writeXML.php",{file:filename, xml:XML}, function(data){
+						say(data);
+					});
+				}
+				function say(text){
+					var oldtext = $('#say').html();
+					$('#say').html(oldtext+"<br>"+getTime()+" : "+text);
+					$("#say").scrollTop($("#say")[0].scrollHeight);
+				}
+				function getTime(){
+					var time = new Date();
+    					var formatted_time = ("0" + time.getHours()).slice(-2)   + ":" + 
+    					("0" + time.getMinutes()).slice(-2) + ":" + 
+    					("0" + time.getSeconds()).slice(-2);
+					return formatted_time;
+				}
+
+				function goTo(model){
+					//r.clear();
+					
+					$('.toolbar_button').css("display","none");
+					if(model=="GoalModel"){
+						r = getHolderByName("holder");
+						shapes = goalm_shapes.slice();
+						connections = goalm_connections.slice();
+						$('.goalmodel').css("display","block");
+						$('#goal_model_toolbar').css("display","none");
+						toggleElementsInGoalModel = false;
+						selectedModel = "GoalModel";
+						setToolbarSize(75);
+						showHolder(1);	
+						fixConnectionAndLabelPositions();
+					}
+					else if(model=="MotivationalScenario"){
+						r = getHolderByName("holder");
+						shapes = goalm_shapes.slice();
+						connections = goalm_connections.slice();
+						$('.motivationalscenario').css("display","block");
+						selectedModel = "MotivationalScenario";
+						setToolbarSize(140);
+						showHolder(2);	
+						showMotivationalScenarioNames();
+						$(".motivationalscenariocontent").css("display","none");
+						if(selectedShape!=undefined && shapes.length!=0 && selectedShape.imagetype=="FG"){	
+							createMotivationalScenario(selectedShape.id);
+						}
+					}
+					else if(model=="RoleModel"){
+						r = getHolderByName("holder");
+						shapes = goalm_shapes.slice();
+						connections = goalm_connections.slice();
+						$('.rolemodel').css("display","block");
+						selectedModel = "RoleModel";
+						setToolbarSize(140);
+						showHolder(3);	
+						showRoleModelNames();
+						$(".rolemodelcontent").css("display","none");
+						if(selectedShape!=undefined && shapes.length!=0 && selectedShape.imagetype=="Role"){	
+							createRoleModel(selectedShape.id);
+						}
+					}
+					else if(model=="OrganizationModel"){
+						r = getHolderByName("holder4");
+						shapes = orgm_shapes.slice();
+						connections = orgm_connections.slice();
+						$('.organizationmodel').css("display","block");
+						selectedModel = "OrganizationModel";
+						setToolbarSize(140);
+						showHolder(4);
+						showOrganizationModelNames();
+						fixConnectionAndLabelPositions();	
+					}
+					else if(model=="DomainModel"){
+						r = getHolderByName("holder5");
+						shapes = domainm_shapes.slice();
+						connections = domainm_connections.slice();
+						$('.domainmodel').css("display","block");
+						selectedModel = "DomainModel";
+						setToolbarSize(140);
+						showHolder(5);
+						showDomainModelNames();
+						fixConnectionAndLabelPositions();		
+					}
+					else if(model=="AgentModel"){
+						//r = getHolderByName("holder7");
+						r = Raphael("holder6",0,0)
+						shapes = agentm_shapes.slice();
+						connections = agentm_connections.slice();
+						$('.agentmodel').css("display","block");
+						selectedModel = "AgentModel";
+						setToolbarSize(140);
+						showHolder(6);
+						showAgentModelNames();
+						$(".agentmodelcontent").css("display","none");
+						$("#agentmodel_roles_pickup_box").css("display","none");
+					}					
+					else if(model=="AcquaintanceModel"){
+						r = getHolderByName("holder7");
+						shapes = acquaintancem_shapes.slice();
+						connections = acquaintancem_connections.slice();
+						$('.acquaintancemodel').css("display","block");
+						selectedModel = "AcquaintanceModel";
+						setToolbarSize(140);
+						showHolder(7);
+						showAcquaintanceModelNames();
+						fixConnectionAndLabelPositions();
+					}
+					else if(model=="KnowledgeModel"){
+						r = getHolderByName("holder8");
+						shapes = knowledgem_shapes.slice();	
+						connections = knowledgem_connections.slice();
+						$('.knowledgemodel').css("display","block");
+						selectedModel = "KnowledgeModel";
+						setToolbarSize(140);
+						showHolder(8);
+						showKnowledgeModelNames();
+						fixConnectionAndLabelPositions();
+					}
+					else if(model=="InteractionModel"){
+						r = getHolderByName("holder9");
+						shapes = interactionm_shapes.slice();	
+						connections = interactionm_connections.slice();
+						$('.interactionmodel').css("display","block");
+						selectedModel = "InteractionModel";
+						setToolbarSize(140);
+						showHolder(9);
+						showInteractionModelNames();
+						fixConnectionAndLabelPositions();
+					}
+					else if(model=="BehaviourModel"){
+						r = getHolderByName("holder10");
+						shapes = behaviourm_shapes.slice();
+						connections = behaviourm_connections.slice();
+						$('.behaviourmodel').css("display","block");
+						selectedModel = "BehaviourModel";
+						setToolbarSize(140);
+						showHolder(10);
+						showBehaviourModelNames();
+						fixConnectionAndLabelPositions();
+					}
+					else if(model=="BehaviourInterfaceModel"){
+						selectedModel = "BehaviourInterfaceModel";
+						showHolder(11);
+						saveBift();
+						drawBehaviourInterfaceTable();
+						setToolbarSize(140);
+					}
+					else if(model=="CPNModel"){
+						saveBift();	//save behaviour interface model incase it was not saved
+						r = getHolderByName("holder12");
+						shapes = cpnm_shapes.slice();
+						connections = cpnm_connections.slice();
+						selectedModel = "CPNModel";
+						$('.cpnmmodel').css("display","block");
+						showHolder(12);
+						setToolbarSize(140);
+						generateCPNmodel();
+						showVariables();
+					}
+
+					$('#arrow').click();
+				}
+				function showHolder(num){
+					hideHolders();
+					if(num==1){
+						$('#holder').css("display","block");
+					}
+					if(num==2){
+						$('#holder2').css("display","block");
+					}
+					else if(num==3){
+						$('#holder3').css("display","block");
+					}
+					else if(num==4){
+						$('#holder4').css("display","block");
+					}
+					else if(num==5){
+						$('#holder5').css("display","block");
+					}
+					else if(num==6){
+						$('#holder6').css("display","block");
+					}
+					else if(num==7){
+						$('#holder7').css("display","block");
+					}
+					else if(num==8){
+						$('#holder8').css("display","block");
+					}
+					else if(num==9){
+						$('#holder9').css("display","block");
+					}
+					else if(num==10){
+						$('#holder10').css("display","block");
+					}
+					else if(num==11){
+						$('#holder11').css("display","block");
+					}
+					else if(num==12){
+						$('#holder12').css("display","block");
+					}
+				}
+				function hideHolders(){
+					$('#holder').css("display","none");
+					$('#holder2').css("display","none");
+					$('#holder3').css("display","none");
+					$('#holder4').css("display","none");
+					$('#holder5').css("display","none");
+					$('#holder6').css("display","none");
+					$('#holder7').css("display","none");
+					$('#holder8').css("display","none");
+					$('#holder9').css("display","none");
+					$('#holder10').css("display","none");
+					$('#holder11').css("display","none");
+					$('#holder12').css("display","none");
+				}
+				function setToolbarSize(px){
+					$('#toolbar').css("width",px);
+					$("#hidetoolbar_text").html("Hide toolbar");		
+					//$("#toolbar").css("display","block");	
+				}
+
+		</script>
+    </head>
+    <body oncontextmenu="return false;">
+			<div id="header_wrapper">
+				<div id="header">
+					<div id="header_top_box">
+						<!--input id="model_name" type="text"-->
+						<input id="save_model_xml" style="float:left" type="button" value="Save" class="save-button">
+
+						<div class="upload-wrapper">
+    						<span class='upload-label'>Load</span>
+							<input id="load_model_xml" class='upload' type="file" name="files[]" />
+						</div>
+
+						<!--input id="clear_model" type="button" value="Clear" class="button"-->
+						<input id="show_layers" type="button" value="All layers" class="button layer_button">
+						<input id="show_system_design_layer" type="button" value="System design layer" class="button layer_button">
+						<input id="show_motivation_layer" type="button" value="Motivation layer" class="button layer_button">
+					</div>
+					<div id="header_bottom_box">
+						<div id="tab_goalmodel" class="model_tab motivation_layer chosen_model_tab">Goal <br> model</div>
+						<!--div id="tab_motivationalscenario" class="model_tab motivation_layer">Motivational <br>scenario</div-->
+						<div id="tab_rolemodel" class="model_tab motivation_layer">Role <br>model</div>
+						<div id="tab_organizationmodel" class="model_tab motivation_layer">Organization <br>model</div>
+						<div id="tab_domainmodel" class="model_tab motivation_layer">Domain <br> model</div>
+
+						<div id="tab_agentmodel" class="model_tab system_design_layer">Agent <br> model</div>
+						<div id="tab_acquaintancemodel" class="model_tab system_design_layer">Acquaintance <br> model</div>
+						<div id="tab_knowledgemodel" class="model_tab system_design_layer">Knowledge <br> model</div>
+						<div id="tab_interactionmodel" class="model_tab system_design_layer">Interaction <br> model</div>
+						<!--div id="tab_scenario" class="model_tab system_design_layer">Scenario <br> &nbsp;</div-->
+						<div id="tab_behaviourmodel" class="model_tab system_design_layer">Behaviour <br> model</div>
+					
+						<div id="tab_behaviour_interface" class="model_tab system_design_layer">Behaviour Interface <br> Model</div>
+						<div id="tab_cpn_model" class="model_tab system_design_layer">CPN <br> Model</div>
+					</div>
+				</div>
+			</div>			
+
+			<div id="wrapper">
+				<div id="toolbar">
+					<div id="arrow" class="toolbar_button goalmodel toolbar_button_selected top_positioned_button"></div>
+					<div id="Role" title="Role" class="toolbar_button shapebutton goalmodel"></div>
+					<div id="QG" draggable="false" title="Quality Gole" class="toolbar_button shapebutton goalmodel"></div>
+					<div id="FG" title="Functional Goal" class="toolbar_button shapebutton goalmodel"></div>
+					<div id="EG" title="Emotional Goal" class="toolbar_button shapebutton goalmodel"></div>	
+					<!--div id="NEG" title="Negative Emotion" class="toolbar_button shapebutton goalmodel"></div-->	
+					<div id="line" title="Connection" class="toolbar_button goalmodel"></div>
+					<div id="toggle_goal_model_elements" class="toolbar_button goalmodel"></div>
+					<div id="goal_model_toolbar" class="toolbar_button goalmodel"></div>
+					<div id="role_model_toolbar" class="toolbar_button rolemodel"></div>
+					<div id="motivational_scenario_toolbar" class="toolbar_button motivationalscenario"></div>
+					<div id="orgmodel_wrapper">	
+						<div id="orgarrow" class="toolbar_button organizationmodel toolbar_button_selected organizationmodel_toolbar_button top_positioned_button"></div>
+						<div id="org_line" title="Connection" class="toolbar_button organizationmodel_toolbar_button organizationmodel"></div>
+						<div id="isBenevolentTo_line" title="isBenevolentTo connection" class="toolbar_button organizationmodel_toolbar_button organizationmodel"></div>
+						<div id="isControlledBy_line" title="isControlledBy connection" class="toolbar_button organizationmodel_toolbar_button organizationmodel"></div>
+						<div id="isPeer_line" title="isPeer connection" class="toolbar_button organizationmodel_toolbar_button organizationmodel"></div>
+						<div id="organization_model_toolbar" class="toolbar_button organizationmodel"></div>
+					</div>
+					<div id="domainmodel_wrapper">
+						<div id="domainarrow" class="toolbar_button domainmodel toolbar_button_selected domainmodel_toolbar_button top_positioned_button"></div>
+						<!--div id="Environment" title="Environment" class="toolbar_button shapebutton domainmodel"></div-->
+						<div id="Resource" title="Domain Entity" class="toolbar_button shapebutton domainmodel"></div>
+						<div id="domain_line" title="Connection" class="toolbar_button domainmodel_toolbar_button domainmodel"></div>
+						<div id="domain_inheritance" title="Inheritance" class="toolbar_button domainmodel_toolbar_button domainmodel"></div>
+						<div id="domain_aggregation" title="Aggregation" class="toolbar_button domainmodel_toolbar_button domainmodel"></div>
+						<div id="domain_composition" title="Composition" class="toolbar_button domainmodel_toolbar_button domainmodel"></div>
+						<div id="domain_model_toolbar" class="toolbar_button domainmodel"></div>						
+					</div>
+					<div id="agent_model_toolbar" class="toolbar_button agentmodel"></div>
+					<div id="acquaintancemodel_wrapper">
+						<div id="acquaintancearrow" class="toolbar_button acquaintancemodel toolbar_button_selected acquaintancemodel_toolbar_button top_positioned_button"></div>
+						<div id="acquaintance_line" title="Connection" class="toolbar_button acquaintancemodel"></div>
+						<div id="acquaintance_model_toolbar" class="toolbar_button acquaintancemodel"></div>
+					</div>
+					<div id="knowledgemodel_wrapper">
+						<div id="knowledgearrow" class="toolbar_button knowledgemodel toolbar_button_selected knowledgemodel_toolbar_button top_positioned_button"></div>
+						<div id="knowledge_line" title="Connection" class="toolbar_button knowledgemodel_toolbar_button knowledgemodel"></div>
+						<div id="knowledge_inheritance" title="Inheritance" class="toolbar_button knowledgemodel_toolbar_button knowledgemodel"></div>
+						<div id="knowledge_aggregation" title="Aggregation" class="toolbar_button knowledgemodel_toolbar_button knowledgemodel"></div>
+						<div id="knowledge_composition" title="Composition" class="toolbar_button knowledgemodel_toolbar_button knowledgemodel"></div>						
+						<div id="knowledge_model_toolbar" class="toolbar_button knowledgemodel">
+							<div id="knowledge_model_toolbar_agents" class="toolbar_button knowledgemodel"></div>
+							<div id="knowledge_model_toolbar_resources" class="toolbar_button knowledgemodel"></div>
+						</div>
+					</div>
+					<div id="interactionmodel_wrapper">
+						<div id="interactionarrow" class="toolbar_button interactionmodel toolbar_button_selected interactionmodel_toolbar_button top_positioned_button"></div>
+						<div id="interaction_agent_message" title="Agent Message" class="toolbar_button interactionmodel"></div>
+						<div id="interaction_physical_action" title="Physical Action" class="toolbar_button interactionmodel"></div>
+						<div id="interaction_connection" title="Connection" class="toolbar_button interactionmodel"></div>
+						<div id="interaction_action_on_environment" title="Action on environment" class="toolbar_button interactionmodel"></div>
+						<div id="interaction_nonaction_event" title="Nonaction event" class="toolbar_button interactionmodel"></div>
+						<div id="interaction_model_toolbar" class="toolbar_button interactionmodel"></div>
+					</div>
+					<div id="behaviourmodel_wrapper">
+						<div id="behaviourarrow" class="toolbar_button behaviourmodel toolbar_button_selected behaviourmodel_toolbar_button top_positioned_button"></div>
+						<div id="behaviour_agent_message" title="Agent Message" class="toolbar_button behaviourmodel"></div>
+						<div id="behaviour_physical_action" title="Physical Action" class="toolbar_button behaviourmodel"></div>
+						<div id="behaviour_connection" title="Connection" class="toolbar_button behaviourmodel"></div>
+						<div id="behaviour_rule" title="Rule" class="toolbar_button behaviour_toolbar_button behaviourmodel shapebutton"></div>
+						<div id="behaviour_activity_type" title="Activity type" class="toolbar_button behaviour_toolbar_button behaviourmodel shapebutton"></div>
+						<div id="behaviour_start_event" title="Start event" class="toolbar_button behaviour_toolbar_button behaviourmodel shapebutton"></div>
+						<div id="behaviour_control_flow" title="Control flow" class="toolbar_button behaviour_toolbar_button behaviourmodel"></div>
+						<div id="behaviour_alt_control_flow" title="Alternative control flow" class="toolbar_button behaviour_toolbar_button behaviourmodel"></div>
+						<div id="behaviour_condition" title="Condition" class="toolbar_button behaviour_toolbar_button behaviourmodel"></div>
+						<div id="behaviour_episternic_action" title="Episternic action" class="toolbar_button behaviour_toolbar_button behaviourmodel"></div>
+						<div id="behaviour_join" title="Join" class="toolbar_button behaviour_toolbar_button behaviourmodel shapebutton"></div>						
+						<div id="behaviour_model_toolbar" class="toolbar_button behaviourmodel"></div>
+					</div>
+					<div id="cpnmmodel_wrapper">
+						<button class="generate_cpn_button toolbar_button cpnmmodel" onclick="promptSaveXML()">Generate CPN</button>
+						<div id="cpnmmodel_toolbar" class="toolbar_button cpnmmodel"></div>
+					</div>
+				</div><div id="hidetoolbar"><div id="hidetoolbar_text">Hide</div></div>
+			
+				<div id="holder" class="holders" oncontextmenu="return false;"></div>
+				<div id="holder2" class="holders">
+					<table id='motivationalscenario_header' class='motivationalscenariocontent'><tr><td><input id="edit_motivationalscenario_button" type="button" value="Edit" ><input id="delete_motivationalscenario_button" type="button" value="Delete" ></td></tr></table> 
+					<table id='motivationalscenariotable' class='motivationalscenariocontent'><tr><td class='motivationalscenariotable_left_td'>Scenario name</td><td><div id='motivationalscenario_table_name' class='motivationalscenario_textarea'></div><textarea id='motivationalscenario_table_name_edit' class='motivationalscenario_textarea_edit'></textarea></td></tr>
+					    <tr><td class='motivationalscenariotable_left_td'>Scenario description</td><td><div id='motivationalscenario_table_description' class='motivationalscenario_textarea'></div><textarea id='motivationalscenario_table_description_edit' class='motivationalscenario_textarea_edit'></textarea></td></tr>
+					    <tr><td class='motivationalscenariotable_left_td'>Quality description</td><td><div id='motivationalscenario_table_qualitydescription'></div></td></tr></table>
+					    <input id='motivationalscenario_table_id' type="hidden">
+				</div>
+				<div id="holder3" class="holders">
+					<table id='rolemodeltable_header' class='rolemodelcontent'><tr><td><input id="edit_rolemodel_button" type="button" value="Edit" ><input id="delete_rolemodel_button" type="button" value="Delete" ></td></tr></table> 
+					<table id='rolemodeltable' class='rolemodelcontent'><tr><td class='rolemodeltable_left_td'>Role name</td><td><div id='rolemodel_table_name' class='rolemodel_textarea'></div><textarea id='rolemodel_table_name_edit' class='rolemodel_textarea_edit'></textarea></td></tr>
+					    <tr><td class='rolemodeltable_left_td'>Description</td><td><div id='rolemodel_table_description' class='rolemodel_textarea'></div><textarea id='rolemodel_table_description_edit' class='rolemodel_textarea_edit'></textarea></td></tr>
+					    <tr><td class='rolemodeltable_left_td'>Responsibilities</td><td><div id='rolemodel_table_responsibilities' class='rolemodel_textarea'></div><textarea id='rolemodel_table_responsibilities_edit' class='rolemodel_textarea_edit'></textarea></td></tr>
+					    <tr><td class='rolemodeltable_left_td'>Constraints</td><td><div id='rolemodel_table_constraints' class='rolemodel_textarea'></div><textarea id='rolemodel_table_constraints_edit' class='rolemodel_textarea_edit'></textarea></td></tr></table>
+					    <input id='rolemodel_table_id' type="hidden">
+				</div>	
+				<div id="holder4" class="holders"></div>	
+				<div id="holder5" class="holders"></div>
+				<div id="holder6" class="holders">
+					<table id='agentmodeltable_header' class='agentmodelcontent'><tr><td><input id="edit_agentmodel_button" type="button" value="Edit" ><input id="delete_agentmodel_button" type="button" value="Delete" ></td></tr></table> 
+					<table id='agentmodeltable' class='agentmodelcontent'>
+					    <tr><td class='agentmodeltable_left_td'>Agent name</td><td><div id='agentmodel_table_name' class='agentmodel_textarea'></div><textarea id='agentmodel_table_name_edit' class='agentmodel_textarea_edit'></textarea></td></tr>
+					    <tr><td class='agentmodeltable_left_td'>Description</td><td><div id='agentmodel_table_description' class='agentmodel_textarea'></div><textarea id='agentmodel_table_description_edit' class='agentmodel_textarea_edit'></textarea></td></tr>
+					    <tr><td class='agentmodeltable_left_td'>Roles</td><td><div id='agentmodel_table_roles' class=''></div><div id="agentmodel_roles_pickup_box" class=""></div></td></tr>
+					    <tr><td class='agentmodeltable_left_td'>Responsibilities</td><td><div id='agentmodel_table_responsibilites' class=''></div><div id="agentmodel_responsibilities_pickup_box" class=""></div></td></tr>
+					    </table>
+					    <input id='agentmodel_table_id' type="hidden">
+				</div>	
+				<div id="holder7" class="holders"></div>
+				<div id="holder8" class="holders"></div>
+				<div id="holder9" class="holders"></div>
+				<div id="holder10" class="holders"></div>
+					<!--div id="behaviour-conditions-table">aa</div-->
+				<div id="holder11" class="holders">
+					<div id="behaviourinterfacetable_wrapper">
+					<table id="behaviourinterfacetable_header"><tr><td> <input id="edit_behaviourinterfacetable" type="button" value="Edit"> </td><tr></table>
+					<table id="behaviourinterfacetable"></table>
+					<input id="behaviourinterfacetable_add" type="button" value="+">
+					</div>
+				</div>
+				<div id="holder12" class="holders"></div>
+			</div>
+			<div id="statusbar">
+				<div id="say"><script>document.getElementById('say').innerHTML=getTime()+" : Started"</script></div>
+			</div>
+
+		<div id="popup_window" class="popup_window_class">
+			<div id="display_overlay_bg" class="display_overlay_bg_class" oncontextmenu="return false;" onclick="hide_the_overlay();"></div>
+			<div id="display_horizon" class="display_horizon_class">
+				<div id="popup_display_content" class="display_content_class">
+					<div>	
+						<div id="popup_label">Modify</div> 
+						<input id="edit_element_button" type="button" value="Edit" > 
+					</div><br />
+					<div id="name_label" class="popup_name">Name: </div><textarea id="name_input" class="popup_textarea popup_name"></textarea>
+					<br>
+
+					<div id="description_label" class="shape_content">Description: </div><textarea id="description_input" class="popup_textarea shape_content"></textarea>
+					
+					<div id="responsibilities_and_constraints_contents">
+						<input id="edit_responsibilities_and_constraints_button" class="shape_content" type="button" value="Show responsibilities and constraints"><br>
+						<div id="responsibilities_and_constraints_fields">
+							<div id="responsibilities_label" class="shape_content">Responsibilities: </div><textarea id="responsibilities_input" class="popup_textarea shape_content"></textarea><br>
+							<div id="constraints_label" class="shape_content">Constraints: </div><textarea id="constraints_input" class="popup_textarea shape_content"></textarea><br>
+						</div>
+					</div>
+					
+					<div id="attributes">
+						<div id="attributes_label">Attributes:</div>
+						<div id="attributes_content"></div>
+						<div><input id="attr_name" type='text'> : <input id="attr_val" type='text'> <input type="button" id="add_attibute_button" value="Add attribute"></div>
+
+						<div id="methods_label">Methods:</div>
+						<div id="methods_content"></div>
+						<div><input id="method_name" type='text'> <input type="button" id="add_method_button" value="Add method"></div>
+
+					</div>	
+					<div id="roles">
+						<div id="roles_label">Roles:</div>
+						<div id="roles_content"></div>
+					</div>					
+
+					<br>
+					
+					<input id="save_element_button" class="popup_action_button shape_content popup_goalm_action_button" type="button" value="Save" >
+					<input id="delete_element_button" class="popup_action_button shape_content popup_goalm_action_button" type="button" value="Delete" >
+
+					<input id="save_connection_button" class="popup_action_button connection_content popup_goalm_con_action_button" type="button" value="Save connection" >
+					<input id="delete_connection_button" class="popup_action_button connection_content popup_goalm_con_action_button" type="button" value="Delete connection" >
+
+					<input id="cancel_button" class="popup_action_button shape_content connection_content popup_goalm_action_button popup_goalm_con_action_button" type="button" value="Cancel" >
+
+					<input id="close_org_el_button" class="popup_action_button popup_orgm_action_button" type="button" value="Close" >
+					<input id="delete_org_el_button" class="popup_action_button popup_orgm_action_button" type="button" value="Delete" >
+					
+					<input id="save_acq_el_button" class="popup_action_button popup_acqm_action_button" type="button" value="Save" >
+					<input id="delete_acq_el_button" class="popup_action_button popup_acqm_action_button" type="button" value="Delete" >
+					<input id="close_acq_el_button" class="popup_action_button popup_acqm_action_button" type="button" value="Cancel" >
+
+					<input id="close_org_con_button" class="popup_action_button popup_orgm_con_action_button" type="button" value="Close" >
+					<input id="delete_org_con_button" class="popup_action_button popup_orgm_con_action_button" type="button" value="Delete connection" >
+
+					<hr id="separator1"/>
+
+					<div id="popup_display_content_goalmodel_role" class="popup_display_specific_content">
+						<input type="button" value="Add related functional goal" class="subbutton add_subfunctional_button">
+						<input type="button" value="Add related emotion" class="subbutton add_emotion_button">
+						<input type="button" value="Add related negative emotion" class="subbutton add_negative_emotion_button">
+					</div>
+					<div id="popup_display_content_goalmodel_qg" class="popup_display_specific_content">
+						<input type="button" value="Add related functional goal" class="subbutton add_subfunctional_button">
+					</div>
+					<div id="popup_display_content_goalmodel_fg" class="popup_display_specific_content">
+						<input type="button" value="Add related role" class="subbutton add_subrole_button">
+						<input type="button" value="Add related quality goal" class="subbutton add_subquality_button">
+						<input type="button" value="Add related functional goal" class="subbutton add_subfunctional_button">	
+						<input type="button" value="Add related emotion" class="subbutton add_emotion_button">
+						<input type="button" value="Add related negative emotion" class="subbutton add_negative_emotion_button">
+					</div>
+					<div id="popup_display_content_goalmodel_eg" class="popup_display_specific_content">
+						<input type="button" value="Add related role" class="subbutton add_subrole_button">
+						<input type="button" value="Add related negative emotion" class="subbutton add_negative_emotion_button">
+						<input type="button" value="Add related functional goal" class="subbutton add_subfunctional_button">	
+					</div>
+					<div id="popup_display_content_goalmodel_neg" class="popup_display_specific_content">
+						<input type="button" value="Add related role" class="subbutton add_subrole_button">
+						<input type="button" value="Add related emotion" class="subbutton add_emotion_button">
+						<input type="button" value="Add related functional goal" class="subbutton add_subfunctional_button">	
+					</div>
+					<div id="popup_display_content_domainmodel_role" class="popup_display_specific_content">
+						<input type="button" value="Add related resource" class="subbutton add_subresource_button">
+					</div>
+					<div id="popup_display_content_domainmodel_resource" class="popup_display_specific_content">
+						<input type="button" value="Add related resource" class="subbutton add_subresource_button">
+					</div>
+				</div>
+			</div>
+		</div>
+    </body>
+</html>

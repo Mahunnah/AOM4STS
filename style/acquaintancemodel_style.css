@@ -1,0 +1,27 @@
+#acquaintance_model_toolbar{
+	height:445px;
+	overflow-y:auto;
+	border:none;
+}
+#acquaintance_model_toolbar:hover{
+	background-color:transparent;
+}
+.acquaintancemodel_toolbar_button{
+	border:1px white solid;
+}
+.acquaintancemodel_toolbar_button:hover{
+	background-color:#E6E6DA;
+	border:1px lightgray solid;
+}
+
+#acquaintance_line{
+	height:23px;
+	text-align:center;
+	width:140px;
+	border:none;
+}
+#acquaintancearrow{
+	height:32px;
+	text-align:center;
+	border:none;
+}

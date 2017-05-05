@@ -1,0 +1,36 @@
+#interactionarrow{
+	height:32px;
+	text-align:center;
+	border:none;
+}
+#interaction_physical_action,#interaction_agent_message, #interaction_connection,#interaction_nonaction_event,#interaction_action_on_environment{
+	height:23px;
+	text-align:center;
+	width:140px;
+	border:none;
+}
+#interaction_model_toolbar{
+	height:399px;
+	overflow-y:auto;
+	border:none;
+}
+#interaction_model_toolbar:hover{
+	background-color:transparent;
+}
+
+#interaction_model_toolbar_agents{
+	height:49%;
+	overflow-y:auto;
+	border:none;
+	border-top:1px black solid;
+}
+#interaction_model_toolbar_agents:hover{
+	background-color:transparent;
+}
+.interactionmodel_toolbar_button{
+	border:1px transparent solid;
+}
+.interactionmodel_toolbar_button:hover{
+	background-color:#E6E6DA;
+	border:1px lightgray solid;
+}

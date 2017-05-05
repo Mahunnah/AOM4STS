@@ -1,0 +1,137 @@
+#agent_model_toolbar{
+	height:499px;
+	overflow-y:auto;
+	border:none;
+}
+#agent_model_toolbar:hover{
+	background-color:transparent;
+}
+.agentmodel_toolbar_button{
+	border:1px white solid;
+}
+.agentmodel_toolbar_button:hover{
+	background-color:#E6E6DA;
+	border:1px lightgray solid;
+}
+#agent_new{
+	font-weight:bold;
+}
+.agentmodelcontent{
+	width:55%;
+	border:1px gray solid;
+	border-spacing: 0;
+	margin: 0 auto;
+	table-layout:fixed;
+	overflow:auto; 
+	white-space:pre-wrap;
+}
+#agentmodeltable_header{
+	border:none;
+	text-align:right;
+	margin-top:20px;
+}
+#agentmodeltable td{
+	color:black;
+	border:1px gray solid;
+	vertical-align:top;
+	overflow:hidden;
+}
+.agentmodeltable_left_td{
+	width:30%;
+	font-weight:bold;
+	background-color:#E6E6DA;
+	overflow:hidden;
+}
+.agentmodel_textarea{
+	border:none;
+	width:99.9%;
+}
+.agentmodel_textarea_edit{
+	border:none;
+	width:99.8%;
+	max-width:99.8%;
+	min-width:99.8%;
+	display:none;
+	font-size:12pt;
+	font-family: Arial, "Times New Roman", Times, serif;
+}
+.agent_icon{
+	background: url("../images/icons/Agent_icon.png") no-repeat center;
+	//background-size:10px;
+	background-size: 75% 75%;
+	background-position: 50% 85%;
+	display:inline-block;
+   	width: 15px;
+    	height: 15px;
+}
+
+#edit_agentmodel_button{
+	width:50px;
+}
+.selected_agentmodel_role_name{
+	background-color:lightgray;
+}
+#agentmodel_roles_pickup_box, #agentmodel_responsibilities_pickup_box{
+	display:none;
+	border:1px black solid;
+	width: 99.7%;
+	background-color:#E0F0FF;
+	max-height:290px;
+	overflow-y:auto;
+	margin-top:10px;
+}
+#agentmodel_table_roles, #agentmodel_table_responsibilites{
+	border:none;
+	width: 99.7%;
+	min-height:25px;
+}
+.agentmodel_role_pickup_button{
+	cursor:pointer;
+	border:1px #E0F0FF solid;
+}
+.agentmodel_role_pickup_button:hover{
+	background-color:#E6E6DA;
+	border:1px gray solid;
+}
+.agentmodel_role{
+	display:inline-block;
+	border:1px black solid;
+	background-color:#F7F7F3;
+	border-radius:3px;
+	margin-right:2px;
+	padding-left:5px;
+	padding-right:5px;
+	cursor:pointer;
+}
+.agentmodel_role:hover{
+	//background-color:red;
+	background: url("../images/icons/delete2.png") no-repeat center;
+	//background-size:10px;
+	background-size: 100% 100%;
+	background-position: 50% 50%;
+}
+.agent_responsibility_option {
+	cursor:pointer;
+	border:1px #E0F0FF solid;
+}
+.agent_responsibility_option:hover {
+	background-color:#E6E6DA;
+	border:1px gray solid;
+}
+.agent_responsibility{
+	display:inline-block;
+	border:1px black solid;
+	background-color:#F7F7F3;
+	border-radius:3px;
+	margin-right:2px;
+	padding-left:5px;
+	padding-right:5px;
+	cursor:pointer;
+}
+.agent_responsibility:hover{
+	//background-color:red;
+	background: url("../images/icons/delete2.png") no-repeat center;
+	//background-size:10px;
+	background-size: 100% 100%;
+	background-position: 50% 50%;
+}
