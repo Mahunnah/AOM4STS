@@ -320,8 +320,9 @@ body {
 	width: 60px;
 	background-color: lightgray;
 	border: 1px gray solid;
-	font-family: "Helvetica Neue", Helvetica, "Arial Unicode MS", Arial, sans-serif;
 	cursor: pointer;
+	font-size: 14px;
+	font-weight: 100;
 }
 
 .upload {
@@ -329,4 +330,9 @@ body {
 	//color: rgba(255,255,255,0);
 	outline: none;
 	cursor: pointer;
+}
+
+input {
+	outline: none;
+	box-shadow: none;
 }
