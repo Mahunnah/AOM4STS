@@ -63,7 +63,7 @@
 				connections[i].bg.attr("stroke","white");
 			}
 			if(connections[i].line!=null){
-				connections[i].line.attr("stroke","black");
+				connections[i].line.attr("stroke", connections[i].initialColor || 'black');
 			}
 			if(connections[i].bg!=null && connections[i].bg.attr("stroke-width")!=null && connections[i].bg.attr("stroke-width")!=0){
 				connections[i].bg.attr("stroke-width","16");
@@ -515,10 +515,42 @@
 			else if(type=="interaction_nonaction_event"){
 				var connection = r.interactionmodel_connection(shape1, shape2, type);
 			}
+      else if(type=="default"){
+        var connection = r.connection(shape1, shape2, "#7A09FF", "#7A09FF");
+      }
+      else if(type=="dashed"){
+        var connection = r.connection(shape1, shape2, "#FF9909", "#FF9909");
+      }
 			else{
 				var connection = r.connection(shape1, shape2, "black");
 			}
-	
+
+      if (selectedNewConnection.id === 'isBenevolentTo_line') {
+				connection.line.attr('stroke', '#FFD635');
+			}
+      if (selectedNewConnection.id === 'isControlledBy_line') {
+        connection.line.attr('stroke', '#34B2E8');
+			}
+      if (selectedNewConnection.id === 'isPeer_line') {
+        connection.line.attr('stroke', '#AE39FF');
+			}
+      if (selectedNewConnection.id === 'org_line') {
+        connection.line.attr('stroke', '#34FF2B');
+			}
+
+      if (selectedNewConnection.id === 'domain_line') {
+        connection.line.attr('stroke', '#FFD635');
+			}
+      if (selectedNewConnection.id === 'domain_inheritance') {
+        connection.line.attr('stroke', '#34B2E8');
+			}
+      if (selectedNewConnection.id === 'domain_aggregation') {
+        connection.line.attr('stroke', '#AE39FF');
+			}
+      if (selectedNewConnection.id === 'domain_composition') {
+        connection.line.attr('stroke', '#34FF2B');
+			}
+
 			if(type=="dashed"){
 				connection.line.attr("stroke-dasharray","--");
 			}
@@ -531,7 +563,8 @@
 			if(type=="dotted"){
 				connection.line.attr("stroke-dasharray",".");
 			}
-			
+
+			connection.initialColor = connection.line.attr('stroke');
 			setConnectionLabel(connection, newConnectionLabelText);
 
 			connection.contype = type;
